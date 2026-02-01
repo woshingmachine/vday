@@ -1,0 +1,89 @@
+:root {
+    color-scheme: light;
+    --pink: #ff6b9a;
+    --deep-pink: #ff3f7a;
+    --soft: #fff4f8;
+    --text: #2b1b23;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    background: radial-gradient(circle at top, #ffe3ef, #ffd1e2 40%, #ffc3d8);
+    color: var(--text);
+}
+
+.card {
+    background: var(--soft);
+    padding: 2.5rem 3rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(255, 63, 122, 0.25);
+    width: min(90vw, 520px);
+}
+
+h1 {
+    margin: 0 0 0.5rem;
+    font-size: clamp(1.8rem, 2.8vw + 1rem, 2.6rem);
+}
+
+.subtitle {
+    margin: 0 0 2rem;
+    opacity: 0.8;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn {
+    border: none;
+    padding: 0.9rem 1.8rem;
+    border-radius: 999px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.btn:active {
+    transform: translateY(1px) scale(0.98);
+}
+
+.yes {
+    background: var(--pink);
+    color: white;
+    box-shadow: 0 10px 20px rgba(255, 63, 122, 0.3);
+}
+
+.yes:hover {
+    background: var(--deep-pink);
+}
+
+.no {
+    background: white;
+    color: var(--deep-pink);
+    border: 2px solid var(--deep-pink);
+}
+
+.message {
+    margin-top: 1.5rem;
+    font-size: 1.1rem;
+    min-height: 1.4em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .btn {
+        transition: none;
+    }
+}
