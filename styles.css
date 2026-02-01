@@ -15,9 +15,11 @@ body {
     min-height: 100vh;
     display: grid;
     place-items: center;
-    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    font-family: "Poppins", "Segoe UI", system-ui, -apple-system, sans-serif;
     background: radial-gradient(circle at top, #ffe3ef, #ffd1e2 40%, #ffc3d8);
     color: var(--text);
+    position: relative;
+    overflow: hidden;
 }
 
 .card {
@@ -27,10 +29,40 @@ body {
     text-align: center;
     box-shadow: 0 20px 50px rgba(255, 63, 122, 0.25);
     width: min(90vw, 520px);
+    overflow: visible;
+    position: relative;
+}
+
+.card-image {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 12px;
+    margin: 0 auto 1rem;
+    display: block;
+}
+
+.overlay-image {
+    position: fixed;
+    max-width: 250px;
+    height: auto;
+    border-radius: 12px;
+    z-index: 1;
+    opacity: 1;
+}
+
+.yes-image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 12px;
+    margin: 0 auto 1.5rem;
+    display: block;
 }
 
 h1 {
     margin: 0 0 0.5rem;
+    font-family: "Dancing Script", cursive;
     font-size: clamp(1.8rem, 2.8vw + 1rem, 2.6rem);
 }
 
@@ -44,6 +76,8 @@ h1 {
     justify-content: center;
     gap: 1rem;
     flex-wrap: wrap;
+    min-height: 56px;
+    align-items: center;
 }
 
 .btn {
@@ -54,6 +88,7 @@ h1 {
     font-weight: 600;
     cursor: pointer;
     transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+    transform-origin: center;
 }
 
 .btn:active {
@@ -64,6 +99,15 @@ h1 {
     background: var(--pink);
     color: white;
     box-shadow: 0 10px 20px rgba(255, 63, 122, 0.3);
+    position: relative;
+    z-index: 2;
+}
+
+.yes.grow {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 4;
 }
 
 .yes:hover {
@@ -74,6 +118,40 @@ h1 {
     background: white;
     color: var(--deep-pink);
     border: 2px solid var(--deep-pink);
+}
+
+.no.flee {
+    position: fixed;
+    z-index: 3;
+    transition: left 0.35s ease, top 0.35s ease;
+}
+
+.yes-screen {
+    position: fixed;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    background: radial-gradient(circle at top, #ffe3ef, #ffd1e2 40%, #ffc3d8);
+    text-align: center;
+    padding: 2rem;
+}
+
+.yes-content {
+    background: var(--soft);
+    padding: 2.5rem 3rem;
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(255, 63, 122, 0.25);
+    max-width: 600px;
+}
+
+.yes-content h2 {
+    margin: 0 0 0.5rem;
+    font-family: "Dancing Script", cursive;
+    font-size: clamp(2rem, 3vw + 1rem, 3rem);
+}
+
+.is-hidden {
+    display: none;
 }
 
 .message {

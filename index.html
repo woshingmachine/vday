@@ -5,13 +5,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Be My Valentine?</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@400;600&display=swap"
+        rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
     <main class="card" aria-live="polite">
-        <h1>Will you be my Valentine? 💘</h1>
-        <p class="subtitle">I made this just for you.</p>
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect fill='%23ffb3d9' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='20' fill='%23fff' text-anchor='middle' dominant-baseline='middle'%3EYour Picture Here%3C/text%3E%3C/svg%3E"
+            alt="Main image" class="card-image" />
+        <h1>Hey pretty, will you be my Valentine? 💘</h1>
+        <p class="subtitle">I think you're super cute</p>
 
         <div class="buttons">
             <button id="yesBtn" class="btn yes" type="button">Yes</button>
@@ -20,6 +27,15 @@
 
         <p id="message" class="message" role="status"></p>
     </main>
+
+    <section id="yesScreen" class="yes-screen is-hidden" aria-live="polite">
+        <div class="yes-content">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%23ff99cc' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' font-size='24' fill='%23fff' text-anchor='middle' dominant-baseline='middle'%3EYes Screen Picture%3C/text%3E%3C/svg%3E"
+                alt="Yes screen image" class="yes-image" />
+            <h2>Yay! 💖</h2>
+            <p>This screen will be filled in later.</p>
+        </div>
+    </section>
 
     <script src="script.js"></script>
 </body>
