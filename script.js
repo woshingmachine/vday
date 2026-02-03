@@ -4,14 +4,24 @@ const message = document.getElementById("message");
 const card = document.querySelector(".card");
 const yesScreen = document.getElementById("yesScreen");
 
-const overlayImageSrc = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='200'%3E%3Crect fill='%23ff80bf' width='250' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='18' fill='%23fff' text-anchor='middle' dominant-baseline='middle'%3EOverlay Picture%3C/text%3E%3C/svg%3E";
+const overlayImages = [
+    "overlay1.jpg",
+    "overlay2.jpg",
+    "overlay3.jpg",
+];
+
+function getRandomOverlay() {
+    return overlayImages[Math.floor(Math.random() * overlayImages.length)];
+}
 
 
 const noMessages = [
     "Are you sure?",
     "Please reconsider…",
-    "But we’d be so cute together 🥺",
+    "Why not 🥺",
     "I'll ask again!!!",
+    "Are you pressing this just to see what happens?",
+    "I'm gonna bite you"
 ];
 
 let noCount = 0;
@@ -33,25 +43,25 @@ noBtn.addEventListener("click", () => {
     if (!yesBaseRect) {
         yesBaseRect = yesBtn.getBoundingClientRect();
     }
-    
+
     noCount += 1;
     message.textContent = pickRandom(noMessages);
     noBtn.classList.add("flee");
     yesBtn.classList.add("grow");
 
     const newOverlay = document.createElement("img");
-    newOverlay.src = overlayImageSrc;
+    newOverlay.src = getRandomOverlay();
     newOverlay.alt = "Overlay image";
     newOverlay.className = "overlay-image";
-    
+
     const overlayMaxX = Math.max(0, window.innerWidth - 250);
     const overlayMaxY = Math.max(0, window.innerHeight - 200);
     const randomX = Math.floor(Math.random() * overlayMaxX);
     const randomY = Math.floor(Math.random() * overlayMaxY);
-    
+
     newOverlay.style.left = `${randomX}px`;
     newOverlay.style.top = `${randomY}px`;
-    
+
     document.body.appendChild(newOverlay);
 
     const maxScale = Math.max(
