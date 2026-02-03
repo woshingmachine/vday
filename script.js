@@ -4,6 +4,23 @@ const message = document.getElementById("message");
 const card = document.querySelector(".card");
 const yesScreen = document.getElementById("yesScreen");
 
+let curtainOpened = false;
+
+function openCurtains() {
+    if (!curtainOpened) {
+        const curtainOverlay = document.getElementById("curtainOverlay");
+        const curtainLeft = document.querySelector(".curtain-left");
+        const curtainRight = document.querySelector(".curtain-right");
+        curtainOverlay.classList.add("open");
+        curtainLeft.classList.add("open");
+        curtainRight.classList.add("open");
+        curtainOpened = true;
+    }
+}
+
+// Make curtain overlay clickable
+document.getElementById("curtainOverlay").addEventListener("click", openCurtains);
+
 const overlayImages = [
     "overlay1.jpg",
     "overlay2.jpg",
@@ -33,6 +50,7 @@ function pickRandom(list) {
 }
 
 yesBtn.addEventListener("click", () => {
+    openCurtains();
     const overlays = document.querySelectorAll(".overlay-image");
     overlays.forEach(overlay => overlay.remove());
     card.classList.add("is-hidden");
@@ -40,6 +58,7 @@ yesBtn.addEventListener("click", () => {
 });
 
 noBtn.addEventListener("click", () => {
+    openCurtains();
     if (!yesBaseRect) {
         yesBaseRect = yesBtn.getBoundingClientRect();
     }
