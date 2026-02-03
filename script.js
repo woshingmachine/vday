@@ -49,20 +49,25 @@ noBtn.addEventListener("click", () => {
     noBtn.classList.add("flee");
     yesBtn.classList.add("grow");
 
-    const newOverlay = document.createElement("img");
-    newOverlay.src = getRandomOverlay();
-    newOverlay.alt = "Overlay image";
-    newOverlay.className = "overlay-image";
+    const cardImage = document.querySelector(".card-image");
+    cardImage.src = "overlay1.jpg";
 
-    const overlayMaxX = Math.max(0, window.innerWidth - 250);
-    const overlayMaxY = Math.max(0, window.innerHeight - 200);
-    const randomX = Math.floor(Math.random() * overlayMaxX);
-    const randomY = Math.floor(Math.random() * overlayMaxY);
+    if (noCount > 1) {
+        const newOverlay = document.createElement("img");
+        newOverlay.src = getRandomOverlay();
+        newOverlay.alt = "Overlay image";
+        newOverlay.className = "overlay-image";
 
-    newOverlay.style.left = `${randomX}px`;
-    newOverlay.style.top = `${randomY}px`;
+        const overlayMaxX = Math.max(0, window.innerWidth - 250);
+        const overlayMaxY = Math.max(0, window.innerHeight - 200);
+        const randomX = Math.floor(Math.random() * overlayMaxX);
+        const randomY = Math.floor(Math.random() * overlayMaxY);
 
-    document.body.appendChild(newOverlay);
+        newOverlay.style.left = `${randomX}px`;
+        newOverlay.style.top = `${randomY}px`;
+
+        document.body.appendChild(newOverlay);
+    }
 
     const maxScale = Math.max(
         window.innerWidth / yesBaseRect.width,
